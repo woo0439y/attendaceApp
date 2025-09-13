@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    image: attendanceapp:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/data
+      - ./public:/app/public:ro
+    restart: unless-stopped
